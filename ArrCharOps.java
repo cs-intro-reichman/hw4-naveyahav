@@ -43,7 +43,7 @@ public class ArrCharOps {
      *  returns true; Otherwise returns false.
      */
     public static boolean equals(char[] arr1, char[] arr2) {
-        if ( arr1.length == 0  || arr2.length == 0 )
+        if ( arr1.length == 0  || arr2.length == 0 || arr1.length != arr2.length)
             return false;
         if (arr1.length == arr2.length) {
             for ( int i = 0; i < arr1.length; i++ ) {
@@ -130,17 +130,11 @@ public class ArrCharOps {
     public static long hashCode(char[] arr) {
         int len = arr.length;
         long sum = 0;
-        int j = 1;
         if ( len == 0)
             return 0;
-        if ( len == 1 ) 
-            return arr[0];
         for ( int i = 0 ; i < len; i++ ) {
-            sum += arr[i] * Math.pow(7, len - j);
-            if(j == 1)
-                j = 2;
-            else
-                j = 1;
+            sum += arr[i] * Math.pow(7, len - i -1 );
+
        }
        return sum;     
     }
